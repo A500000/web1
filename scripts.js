@@ -1,20 +1,26 @@
-document.getElementById("getEstimate").addEventListener("click", function() {
-    alert("Please fill out the contact form below to receive a free estimate.");
+const carousel = document.querySelector('.carousel');
+const carouselInner = document.querySelector('.carousel-inner');
+const carouselItems = document.querySelectorAll('.carousel-item');
+const carouselPrev = document.querySelector('.carousel-prev');
+const carouselNext = document.querySelector('.carousel-next');
+
+let currentSlide = 0;
+
+carouselPrev.addEventListener('click', () => {
+  currentSlide--;
+  if (currentSlide < 0) currentSlide = carouselItems.length - 1;
+  updateCarousel();
 });
 
-document.querySelectorAll("#nav ul li a").forEach(function(link) {
-    link.addEventListener("click", function(event) {
-        event.preventDefault();
-        var sectionId = link.getAttribute("href");
-        var section = document.querySelector(sectionId);
-        section.scrollIntoView({ behavior: "smooth" });
-    });
+carouselNext.addEventListener('click', () => {
+  currentSlide++;
+  if (currentSlide >= carouselItems.length) currentSlide = 0;
+  updateCarousel();
 });
 
-document.querySelector("#contact form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var formData = new FormData(this);
-    console.log(formData.get("name"));
-    console.log(formData.get("email"));
-    console.log(formData.get("message"));
-});
+function updateCarousel() {
+  carouselItems.forEach((item, index) => {
+    item.classList.remove('active');
+    if (index === currentSlide) item.classList.add('active');
+  });
+}
