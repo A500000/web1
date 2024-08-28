@@ -14,7 +14,7 @@ body {
 header {
     background-color: #333;
     color: #fff;
-    padding: 1em;
+    padding: 2em;
     text-align: center;
 }
 
@@ -27,7 +27,8 @@ header nav ul {
 }
 
 header nav ul li {
-    margin-right: 20px;
+    margin-right: 15%;
+    margin-left: 7.5%;
 }
 
 header nav a {
@@ -45,7 +46,11 @@ main {
     align-items: center;
     padding: 2em;
 }
-
+body main section b img {
+    display: flex;
+    max-width: 25%;
+    margin-right: 10%;
+}
 section {
     background-color: #fff;
     padding: 2em;
@@ -132,7 +137,6 @@ h3 {
 }
 
 .project img {
-    width: 100%;
     height: auto;
     margin: 20px 0;
 }
